@@ -1,0 +1,72 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\ORBATs\Dystopian Wars ORBAT Enlightened v105a_2022-01-24-112832_ojrq.pdf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PdfPig" Version="0.1.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Resources\ORBATs\DW_Alliance-ORBAT-v301.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\ORBATs\DW_Commonwealth-ORBAT-v301.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\ORBATs\DW_Commonwealth-ORBAT-v302.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\ORBATs\DW_Crown-ORBAT-v301.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\ORBATs\DW_Crown-ORBAT-v302a.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\ORBATs\DW_Empire-ORBAT-v301.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\ORBATs\DW_Empire-ORBAT-v302a.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\ORBATs\DW_Enlightened-ORBAT-v301_2022-09-02-132101_gqrj.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\ORBATs\DW_Enlightened-ORBAT-v302.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\ORBATs\DW_Imperium-ORBAT-v301.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\ORBATs\DW_Imperium-ORBAT-v302a.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\ORBATs\DW_Sultanate-ORBAT-v301_2022-09-02-132036_djsx.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\ORBATs\DW_Sultanate-ORBAT-v302a.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\ORBATs\DW_Union-ORBAT-v301.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\ORBATs\DW_Union-ORBAT-v302a.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\ORBATs\Dystopian Wars ORBAT Alliance v101a.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\ORBATs\Dystopian Wars ORBAT Enlightened v105a_2022-01-24-112832_ojrq - Copy.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

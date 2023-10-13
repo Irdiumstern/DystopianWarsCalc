@@ -1,0 +1,101 @@
+﻿<UserControl x:Class="DWListBuilder.View.UserControls.OrbatEditorUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:comp="clr-namespace:DWListBuilder.View.UserControls.Components"
+    mc:Ignorable="d" 
+             d:DesignHeight="1000" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <ComboBox ItemsSource="{Binding Orbats}" SelectedItem="{Binding SelectedOrbat, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="150" DisplayMemberPath="FactionName">
+            </ComboBox>
+            <TextBlock Text="{Binding SelectedOrbat.FactionName}" TextAlignment="Center" Margin="0,0,30,0"/>
+            <TextBlock Text="{Binding SelectedOrbat.FileName}" TextAlignment="Center" />
+        </StackPanel>
+        <ScrollViewer Grid.Row="1" 
+                      VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <Grid Grid.IsSharedSizeScope="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Expander Grid.Row="0" Header="Special Rules">
+                    <Grid Style="{StaticResource ListStandardIndentGrid}">
+                        <ItemsControl ItemsSource="{Binding SpecialRules}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <GridSplitter Grid.Row="0" Style="{StaticResource StandardListDivider}"/>
+                                        <TextBlock Grid.Row="1" Text="{Binding SpecialRule.Name}" Style="{StaticResource ShipNameHeaderTextBlock}" />
+                                        <TextBlock Grid.Row="2" Text="{Binding SpecialRule.Description}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
+                </Expander>
+                <Expander Grid.Row="1" Header="Battlefleets">
+
+                </Expander>
+                <Expander Grid.Row="2" Header="Weapons">
+                    <Grid Style="{StaticResource ListStandardIndentGrid}" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="1*" />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="WeaponName"/>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="WeaponDice" />
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="WeaponDice" />
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="WeaponDice"/>
+                                <ColumnDefinition Width="1*" SharedSizeGroup="WeaponQuality"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="NAME" Style="{StaticResource WeaponListHeaderTextBlock}"/>
+                            <TextBlock Grid.Column="1" Text="POINT BLANK" Style="{StaticResource WeaponListHeaderTextBlock}"/>
+                            <TextBlock Grid.Column="2" Text="CLOSING" Style="{StaticResource WeaponListHeaderTextBlock}"/>
+                            <TextBlock Grid.Column="3" Text="LONG" Style="{StaticResource WeaponListHeaderTextBlock}"/>
+                            <TextBlock Grid.Column="4" Text="QUALITY" Style="{StaticResource WeaponListHeaderTextBlock}" HorizontalAlignment="Left"/>
+                        </Grid>
+                        <GridSplitter Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Style="{StaticResource StandardListDivider}"/>
+                        <ItemsControl Grid.Row="2" ItemsSource="{Binding SelectedOrbat.Weapons}" >
+
+                        </ItemsControl>
+                    </Grid>
+                </Expander>
+                <Expander Grid.Row="3" Header="Datasheets">
+                    <Grid Style="{StaticResource ListStandardIndentGrid}">
+                        <ItemsControl ItemsSource="{Binding Datasheets}" >
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <GridSplitter Grid.Row="0" Style="{StaticResource StandardListDivider}"/>
+                                        <comp:DatasheetEditorUC Grid.Row="1"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
+                </Expander>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
